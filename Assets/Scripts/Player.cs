@@ -9,7 +9,7 @@ public class Player : Hero
     [SerializeField] private bool isCom;
     private bool trongTamDanh;
     private GameObject targetObject;
-    private float timeWait;
+    private float timeWait=100;
     private void Update() {
         Debug.DrawLine(transform.position,transform.position + (isCom?-1:1) * Vector3.right * TamDanh,Color.white);
         trongTamDanh = Check();
@@ -28,7 +28,7 @@ public class Player : Hero
             targetObject.GetComponent<Player>().Mau -= this.SatThuong;
             timeWait = 0;
         }else{
-            timeWait += Time.fixedDeltaTime * 1.2f;
+            timeWait += Time.fixedDeltaTime * 2f;
         }
     }
     private void Move(){
